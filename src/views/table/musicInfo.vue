@@ -305,7 +305,7 @@ export default {
       })
         .then(() => {
           deleteList(this.selectIds).then((response) => {
-            console.log(response);
+            this.fetchData();
           });
         })
         .catch(() => {});
@@ -321,11 +321,9 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          console.log(1);
           this.rowId[0] = row.id;
           deleteList(this.rowId)
             .then((response) => {
-              console.log(response);
               this.fetchData();
             })
             .catch((err) => {});
