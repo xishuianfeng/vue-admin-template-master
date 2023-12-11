@@ -1,4 +1,19 @@
 // cover some element-ui styles
+.el-pagination {
+  .el-pager {
+    .number {
+      border-radius: 50% !important;
+    }
+  }
+}
+
+.el-table {
+  .cell {
+    white-space: nowrap;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+}
 
 .el-breadcrumb__inner,
 .el-breadcrumb__inner a {

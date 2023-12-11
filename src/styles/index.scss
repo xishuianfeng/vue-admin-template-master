@@ -4,6 +4,15 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 
+$g-font-weight: 600;
+
+$g-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.06);
+
+
+* {
+  font-weight: $g-font-weight;
+}
+
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -13,7 +22,7 @@ body {
 }
 
 label {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 html {
