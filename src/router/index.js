@@ -148,7 +148,18 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path: '/test',
+    component: Layout,
+    children: [
+      {
+        path: 'test',
+        name: 'Test',
+        component: () => import('@/views/test/testView.vue'),
+        meta: { title: 'Test', icon: 'info' }
+      }
+    ]
+  },
   {
     path: 'external-link',
     component: Layout,

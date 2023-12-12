@@ -185,7 +185,7 @@
 </template>
 
 <script>
-import { deleteList, getList, postList, putList } from "@/api/table";
+import { deleteList, getList, postList, putList } from "@/api/musicInfo";
 
 export default {
   filters: {
@@ -304,7 +304,7 @@ export default {
         cancelButtonText: "取消",
       })
         .then(() => {
-          deleteList(this.selectIds).then((response) => {
+          deleteList(this.selectIds).then(() => {
             this.fetchData();
           });
         })
@@ -323,36 +323,40 @@ export default {
         .then(() => {
           this.rowId[0] = row.id;
           deleteList(this.rowId)
-            .then((response) => {
+            .then(() => {
               this.fetchData();
             })
-            .catch((err) => {});
+            .catch(() => {});
         })
         .catch(() => {});
     },
 
     submitRowInfoSubmie() {
-      if (this.isEdit) {
-        putList(this.rowInfoData).then((response) => {
-          console.log(response);
-          this.fetchData();
-          this.$message({
-            type: response.type,
-            message: response.msg,
-          });
-          this.toggleRowInfoDialog();
-        });
-      } else {
-        postList(this.rowInfoData).then((response) => {
-          console.log(response);
-          this.fetchData();
-          this.$message({
-            type: response.type,
-            message: response.msg,
-          });
-          this.toggleRowInfoDialog();
-        });
-      }
+      this.$refs.rowInfoData.validate((valid) => {
+        if (valid) {
+          if (this.isEdit) {
+            putList(this.rowInfoData).then((response) => {
+              console.log(response);
+              this.fetchData();
+              this.$message({
+                type: response.type,
+                message: response.msg,
+              });
+              this.toggleRowInfoDialog();
+            });
+          } else {
+            postList(this.rowInfoData).then((response) => {
+              console.log(response);
+              this.fetchData();
+              this.$message({
+                type: response.type,
+                message: response.msg,
+              });
+              this.toggleRowInfoDialog();
+            });
+          }
+        }
+      });
     },
     //切换对话框
     toggleRowInfoDialog() {
