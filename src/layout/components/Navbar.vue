@@ -5,12 +5,11 @@
       class="hamburger-container"
       @toggleClick="toggleSideBar"
     />
-
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <el-avatar :src="avatarSrc" icon="el-icon-user" class="user-avatar" />
+          <el-avatar :src="avatar" icon="el-icon-user" class="user-avatar" />
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -39,21 +38,6 @@ export default {
   },
   computed: {
     ...mapGetters(["sidebar", "avatar", "email"]),
-  },
-  data() {
-    return {
-      avatarSrc: "",
-    };
-  },
-  created() {
-    this.$store.dispatch("user/getInfo", this.email);
-  },
-  watch: {
-    avatar: {
-      handler() {
-        this.avatarSrc = `http://localhost:8080/api/user/downloadUserAvatar/${this.avatar}`;
-      },
-    },
   },
   methods: {
     toggleSideBar() {

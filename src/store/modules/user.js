@@ -43,6 +43,7 @@ const actions = {
         const { data } = response
         commit('SET_TOKEN', data.token)
         commit('SET_NAME', data.username)
+        commit('SET_AVATAR', `http://localhost:8080/api/user/downloadUserAvatar/${data.avatar}`)
         commit('SET_EMAIL', data.email)
         commit('SET_PASSWORD', data.password)
         setToken(response.token)
@@ -66,7 +67,7 @@ const actions = {
         const { username, avatar, email, password } = data
         commit('SET_NAME', username)
         commit('SET_EMAIL', email)
-        commit('SET_AVATAR', avatar)
+        commit('SET_AVATAR', `http://localhost:8080/api/user/downloadUserAvatar/${avatar}`)
         commit('SET_PASSWORD', password)
         resolve(data)
       }).catch(error => {
