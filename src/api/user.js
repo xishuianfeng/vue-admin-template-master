@@ -8,11 +8,21 @@ export function login(data) {
   })
 }
 
-export function getInfo(token) {
+export function getInfo(email) {
   return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
+    url: '/user/getUserInfoByEmail',
+    method: 'post',
+    params: {
+      email
+    }
+  })
+}
+
+export function updateUserInfo(data) {
+  return request({
+    url: '/user/updateUserInfoByEmail',
+    method: 'put',
+    data
   })
 }
 

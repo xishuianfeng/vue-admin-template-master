@@ -58,34 +58,27 @@ export const constantRoutes = [
   {
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
+    redirect: '/example/musicinfo',
+    name: '制造执行MES',
     meta: { title: '制造执行MES', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'table',
+        path: 'musicinfo',
         name: '音乐信息',
         component: () => import('@/views/table/musicInfo'),
         meta: { title: '音乐信息', icon: 'table' }
       },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
     ]
   },
-
   {
-    path: '/form',
+    path: '/user',
     component: Layout,
     children: [
       {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        path: 'userinfo',
+        name: '用户信息',
+        component: () => import('@/views/form/userInfo.vue'),
+        meta: { title: '用户信息', icon: 'el-icon-info' }
       }
     ]
   },
@@ -157,16 +150,6 @@ export const constantRoutes = [
         name: 'Test',
         component: () => import('@/views/test/testView.vue'),
         meta: { title: 'Test', icon: 'info' }
-      }
-    ]
-  },
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
       }
     ]
   },
