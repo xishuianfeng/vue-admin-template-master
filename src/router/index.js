@@ -65,7 +65,7 @@ export const constantRoutes = [
       {
         path: 'musicinfo',
         name: '音乐信息',
-        component: () => import('@/views/table/musicInfo'),
+        component: () => import('@/views/table/MusicInfo.vue'),
         meta: { title: '音乐信息', icon: 'table' }
       },
     ]
@@ -77,7 +77,7 @@ export const constantRoutes = [
       {
         path: 'userinfo',
         name: '用户信息',
-        component: () => import('@/views/form/userInfo.vue'),
+        component: () => import('@/views/form/UserInfo.vue'),
         meta: { title: '用户信息', icon: 'el-icon-info' }
       }
     ]
@@ -148,7 +148,7 @@ export const constantRoutes = [
       {
         path: 'test',
         name: 'Test',
-        component: () => import('@/views/test/testView.vue'),
+        component: () => import('@/views/test/TestView.vue'),
         meta: { title: 'Test', icon: 'info' }
       }
     ]

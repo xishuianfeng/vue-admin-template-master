@@ -22,7 +22,7 @@
               style="width: 50px; height: 50px"
               class="avatar-uploader"
               action="http://localhost:8080/api/user/uploadUserAvatar"
-              :data="{ email: $store.state.user.email }"
+              :data="{ email: email }"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
               :before-upload="beforeAvatarUpload"
@@ -46,9 +46,7 @@
           @click.native="passwordDialog"
         >
           <div style="display: flex">
-            <span v-if="showPassword">{{
-              this.$store.state.user.password
-            }}</span>
+            <span v-if="showPassword">{{ password }}</span>
             <span v-else> ******* </span>
             <div @click="toggleShowPassword" style="margin-left: 20px">
               <i v-if="showPassword" class="el-icon-view"></i>
