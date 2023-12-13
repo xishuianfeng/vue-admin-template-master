@@ -144,6 +144,7 @@ export default {
     },
 
     handleAvatarSuccess(res, file) {
+      this.$store.dispatch("user/getInfo", this.email);
       this.imageUrl = URL.createObjectURL(file.raw);
     },
     beforeAvatarUpload(file) {
@@ -159,7 +160,9 @@ export default {
       return isJPG && isLt2M;
     },
   },
-  created(){}
+  created() {
+    this.$store.commit("user/SET_PASSWORD", this.password);
+  },
 };
 </script>
 

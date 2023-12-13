@@ -64,7 +64,6 @@ const actions = {
         }
 
         const { username, avatar, email, password } = data
-
         commit('SET_NAME', username)
         commit('SET_EMAIL', email)
         commit('SET_AVATAR', avatar)
